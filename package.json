@@ -1,0 +1,21 @@
+{
+  "name": "axe-webdriverjs-demo",
+  "version": "1.0.0",
+  "description": "Example project for writing browser tests with WebdriverJS",
+  "scripts": {
+    "postinstall": "jasmine init",
+    "test": "jasmine spec/test.js"
+  },
+  "author": "Cecilie Haugstvedt",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/anneceh/axe-webdriverjs.git"
+  },
+  "dependencies": {
+    "axe-webdriverjs": "^2.3.0",
+    "chromedriver": "^80.0.1",
+    "jasmine": "^3.5.0",
+    "selenium-webdriver": "^2.53.3"
+  }
+}
