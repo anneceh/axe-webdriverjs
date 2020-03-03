@@ -1,27 +1,23 @@
-var webdriver = require('selenium-webdriver');
-var chrome = require('selenium-webdriver/chrome');
-var chromedriver = require('chromedriver');
+const webdriver = require('selenium-webdriver');
+const chrome = require('selenium-webdriver/chrome');
+const chromedriver = require('chromedriver');
 
 chrome.setDefaultService(new chrome.ServiceBuilder(chromedriver.path).build());
 
-var driver = new webdriver.Builder()
+let driver = new webdriver.Builder()
                  .withCapabilities(webdriver.Capabilities.chrome())
                  .build();
 
-var AxeBuilder = require('axe-webdriverjs'),
-    Key = webdriver.Key;
+const AxeBuilder = require('axe-webdriverjs'),
+      Key = webdriver.Key;
 
-var util = require('util');
+const util = require('util');
 
 jasmine.DEFAULT_TIMEOUT_INTERVAL = 60000;
 
 describe('Axe WebDriver JS demo', function() {
 
     beforeEach(function(done) {
-        driver = new webdriver.Builder()
-            .forBrowser('chrome')
-            .build();
-
             driver.get('https://clothes4all.netlify.com/v2').then(function () {
                   driver.executeAsyncScript(function(callback) {
                       var script = document.createElement('script');
@@ -38,7 +34,6 @@ describe('Axe WebDriver JS demo', function() {
               });
     });
 
-    // Close website after each test is run (so it is opened fresh each time)
     afterEach(function(done) {
         driver.quit().then(function () {
             done();
@@ -49,7 +44,10 @@ describe('Axe WebDriver JS demo', function() {
       driver.findElement(webdriver.By.tagName('body'))
           .then(function () {
               AxeBuilder(driver)
-                  .analyze(function(results) {
+                  .analyze(function(err, results) {
+                      if (err) {
+                        return done(err);
+                      }
                       console.log('Accessibility Violations: ', results.violations.length);
                       if (results.violations.length > 0) {
                           console.log(util.inspect(results.violations, true, null));
