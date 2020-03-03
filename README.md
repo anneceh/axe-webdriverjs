@@ -10,3 +10,7 @@ Example project for writing browser tests with axe-webdriverjs
 
 ## To run the example ##
 * Run tests with `npm test`
+
+## On your own ##
+* Change the url in test.js to a website of your choice
+* Use By.css('selector') or By.id('ID') to restrict the test to only a part of a web page.
