@@ -22,7 +22,7 @@ describe('Axe WebDriver JS demo', function() {
             .forBrowser('chrome')
             .build();
 
-            driver.get('https://clothes4all.netlify.com/').then(function () {
+            driver.get('https://clothes4all.netlify.com/v2').then(function () {
                   driver.executeAsyncScript(function(callback) {
                       var script = document.createElement('script');
                       script.innerHTML = 'document.documentElement.classList.add("deque-axe-is-ready");';
