@@ -7,7 +7,7 @@
     "test": "jasmine spec/test.js"
   },
   "author": "Cecilie Haugstvedt",
-  "license": "ISC",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git://github.com/anneceh/axe-webdriverjs.git"
