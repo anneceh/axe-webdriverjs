@@ -45,10 +45,10 @@ describe('Axe WebDriver JS demo', function() {
           .then(function () {
               AxeBuilder(driver)
                   .analyze(function(err, results) {
-                      if (err) {
-                        return done(err);
-                      }
-                      console.log('Accessibility Violations: ', results.violations.length);
+                      // if (err) {
+                      //   return done(err);
+                      // }
+                      //console.log('Accessibility Violations: ', results.violations.length);
                       if (results.violations.length > 0) {
                           console.log(util.inspect(results.violations, true, null));
                       }
